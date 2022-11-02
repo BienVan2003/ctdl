@@ -2,7 +2,7 @@ import java.util.NoSuchElementException;
 
 public class CharLinkedList implements ListInterface {
     private Node head;
-    private int numNode;
+    public int numNode;
     public CharLinkedList(){
         head = null;
         numNode = -1;
@@ -39,8 +39,19 @@ public class CharLinkedList implements ListInterface {
         if(head==null){
             return -1;
         }
-        
-        return 0;
+        Node curr = head;
+        int a = curr.getData();
+        int b = numNode;
+        int c = 0;
+        while(curr!=null){
+            if(a<curr.getData()){
+                a = curr.getData();
+                c = b;
+            }
+            curr = curr.getNext();
+            b--;
+        }
+        return c;
     }
 
     public void print() {
